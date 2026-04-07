@@ -30,9 +30,4 @@ chmod 600 /home/ubuntu/.vnc/passwd
 # 3. Start the VNC session on display :1
 sudo -i -u ubuntu vncserver :1 -geometry 1280x800 -depth 24
 
-# 4. Launch noVNC to bridge VNC (5901) to Web (6080)
-# This runs in the background
-# TODO: Think about what to do with this
-# /usr/share/novnc/utils/novnc_proxy --vnc localhost:5901 --listen 6080 &
-
 touch /tmp/finished
