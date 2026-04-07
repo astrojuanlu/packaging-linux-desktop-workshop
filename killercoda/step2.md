@@ -16,7 +16,8 @@ You should see `5`.
 Notice that the actual code comes from `src/lib.rs`, which is written in Rust!
 
 **Exercise:** Tweak the directory structure so it follows https://www.maturin.rs/project_layout.html#alternate-python-source-directory-src-layout.
-You will need to add an `__init__.py` with the contents described in https://www.maturin.rs/project_layout.html#pure-rust-project.
+You will need to add an `__init__.py` with the contents described in https://www.maturin.rs/project_layout.html#pure-rust-project
+as well as the `hello` function that existed earlier.
 
 `uv run python -c "from test_lib import sum_as_string as s; print(s(2, 3))"`{{exec}}` should give exactly the same result.
 
