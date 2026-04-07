@@ -43,7 +43,7 @@ test-app-gui = "test_app.gui:main"
 - **On the graphical session**, test that `uv run test-app-gui` launches a blank GUI application
 
 **Exercise:** Follow the Toga tutorial https://toga.beeware.org/en/stable/tutorial/tutorial-0/#write-the-app
-to add a button that prints "Hello world!!!" on the terminal,
+to add a button that prints a hello message on the terminal,
 using the Rust library code.
 
 The result should look something like this:
