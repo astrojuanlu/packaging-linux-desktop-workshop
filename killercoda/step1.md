@@ -37,6 +37,6 @@ uv can handle workspaces, collections of one or more packages (members) that are
 > - `test-lib` was added to `[project.dependencies]`
 > - `test-lib` was declared as coming from the workspace under `[tool.uv.sources]`
 
-- Modify `src/test_app/__init__.py` to import and use the `hello` function from the `test_lib` package
+**Exercise:** Modify `src/test_app/__init__.py` to import and use the `hello` function from the `test_lib` package
 
-- Check that `uv run test-app`{{exec}} gives exactly the same result
+`uv run test-app`{{exec}} should give exactly the same result.
