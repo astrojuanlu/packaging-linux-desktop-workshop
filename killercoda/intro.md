@@ -13,4 +13,6 @@ launch noVNC to bridge VNC (5901) to Web (6080):
 Once the setup is complete, you can access the graphical environment here:
 [Open VNC Desktop]({{TRAFFIC_HOST1_6080}}/vnc.html?autoconnect=true)
 
+**The password is `password`**.
+
 If you have trouble, you can also manually select the port here: [Access Ports]({{TRAFFIC_SELECTOR}})
