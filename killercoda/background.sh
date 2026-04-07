@@ -24,10 +24,11 @@ sudo snap install astral-uv --classic
 # 2. Start VNC server (Password is 'password' for simplicity)
 mkdir -p /home/ubuntu/.vnc
 echo "password" | vncpasswd -f > /home/ubuntu/.vnc/passwd
+chown -R ubuntu:ubuntu /home/ubuntu/.vnc
 chmod 600 /home/ubuntu/.vnc/passwd
 
 # 3. Start the VNC session on display :1
-sudo -E -u ubuntu vncserver :1 -geometry 1280x800 -depth 24
+sudo -i -u ubuntu vncserver :1 -geometry 1280x800 -depth 24
 
 # 4. Launch noVNC to bridge VNC (5901) to Web (6080)
 # This runs in the background
