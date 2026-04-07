@@ -2,7 +2,7 @@
 
 This is how you create a new project with `uv`.
 
-- Create a new directory: `mkdir test-app && cd test-app`{{exec}}
+- Create a new directory: `mkdir ~/test-app && cd ~/test-app`{{exec}}
 
 - Initialise the Python project using `uv init`: `uv init --app --package --python $(which python3)`{{exec}}
 
@@ -21,7 +21,7 @@ You should see `Hello from test-app!`.
 
 uv can handle workspaces, collections of one or more packages (members) that are related.
 
-- Create a `packages/test-lib` directory: `mkdir -p packages/test-lib && cd packages/test-lib`{{exec}}
+- Create a `packages/test-lib` directory: `mkdir -p ~/test-app/packages/test-lib && cd ~/test-app/packages/test-lib`{{exec}}
 
 - Initialise a library project: `uv init --lib`{{exec}}
 
@@ -29,9 +29,9 @@ uv can handle workspaces, collections of one or more packages (members) that are
 > - A new library scaffolding was created under `packages/test-lib`, but no new `.venv` or `uv.lock`
 > - The root `pyproject.toml` now contains a new `[tool.uv.workspace]` table
 
-- Go back to the root of the project: `cd ../..`{{exec}}
+- Go back to the root of the project: `cd ~/test-app`{{exec}}
 
-- Add the local `test-lib` as a dependency: `uv add packages/test-lib/`
+- Add the local `test-lib` as a dependency: `uv add ./packages/test-lib/`{{exec}}
 
 > Notice that
 > - `test-lib` was added to `[project.dependencies]`
