@@ -1,6 +1,18 @@
 {
   "title": "Packaging for the Linux Desktop workshop",
   "description": "Scenario for the workshop \"The year of [packaging your Python app for] the Linux desktop\"",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
+    },
+    "steps": [
+      {
+        "text": "step1.md"
+      }
+    ]
+  },
   "backend": {
     "imageid": "ubuntu"
   },
