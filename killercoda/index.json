@@ -1,0 +1,10 @@
+{
+  "title": "Packaging for the Linux Desktop workshop",
+  "description": "Scenario for the workshop \"The year of [packaging your Python app for] the Linux desktop\"",
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "interface": {
+    "layout": "ide"
+  }
+}
