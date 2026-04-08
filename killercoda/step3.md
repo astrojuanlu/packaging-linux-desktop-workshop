@@ -16,10 +16,10 @@ If you have trouble, you can also manually select the port here: [Access Ports](
 ---
 
 - Add `toga` to the `gui` optional list of dependencies: `cd ~/test-app && uv add toga --optional gui`{{exec}}
-- Create a new `src/test_app/gui.py` with these contents:
+- Create a new `src/test_app/__main__.py` with these contents:
 
 ```python
-# gui.py
+# __main__.py
 import toga
 
 
@@ -37,7 +37,7 @@ def main() -> None:
 ```toml
 [project.scripts]
 test-app = "test_app:main"
-test-app-gui = "test_app.gui:main"
+test-app-gui = "test_app.__main__:main"
 ```
 
 - **On the graphical session**, test that `uv run test-app-gui` launches a blank GUI application
