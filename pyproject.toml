@@ -1,32 +1,38 @@
 [project]
-name = "solar-roi-calculator"
+name = "test-app"
 version = "0.1.0"
-description = "Solar ROI graphical calculator"
+description = "Add your description here"
 readme = "README.md"
 authors = [
     { name = "Juan Luis Cano Rodríguez", email = "juan.rodriguez@canonical.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "toga>=0.5.3",
-    "sola-rs-roi-py",
+    "test-lib",
 ]
 
 [project.scripts]
-solar-roi-calculator = "solar_roi_calculator.__main__:run"
+test-app = "test_app:main"
+test-app-gui = "test_app.gui:main"
+
+[project.optional-dependencies]
+gui = [
+    "toga>=0.5.3",
+]
 
 [build-system]
-requires = ["uv_build>=0.11.0,<0.12.0"]
+requires = ["uv_build>=0.11.3,<0.12.0"]
 build-backend = "uv_build"
 
-[dependency-groups]
-dev = [
-    "ipython>=9.11.0",
-    "mypy>=1.19.1",
+[tool.uv.workspace]
+members = [
+    "packages/test-lib",
 ]
 
 [tool.uv.sources]
-sola-rs-roi-py = { workspace = true }
+test-lib = { workspace = true }
 
-[tool.uv.workspace]
-members = ["packages/*"]
+[dependency-groups]
+dev = [
+    "briefcase>=0.4.1",
+]

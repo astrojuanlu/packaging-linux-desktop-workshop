@@ -3,7 +3,7 @@ requires = ["maturin>=1.12,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "sola-rs-roi-py"
+name = "test-lib"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Rust",
@@ -12,28 +12,6 @@ classifiers = [
 ]
 dynamic = ["version"]
 
-[tool.maturin]
-module-name = "sola_rs_roi_py._sola_rs_roi_rust"
-
 [tool.uv]
-# Rebuild package when any Rust files change
+# Rebuild package when any rust files change
 cache-keys = [{file = "pyproject.toml"}, {file = "rust/Cargo.toml"}, {file = "**/*.rs"}]
-
-[dependency-groups]
-dev = [
-    "pytest>=8.3.5",
-    "ruff>=0.15.7",
-]
-
-[tool.ruff]
-show-fixes = true
-
-[tool.ruff.lint]
-select = [
-    "F",  # Pyflakes
-    "E",  # Pycodestyle
-    "W",  # Pycodestyle
-    "UP",  # pyupgrade
-    "I",  # isort
-    "PL",  # Pylint
-]
