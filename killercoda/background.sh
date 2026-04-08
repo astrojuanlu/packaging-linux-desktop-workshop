@@ -17,6 +17,7 @@ sudo -E apt-get install --no-install-recommends -y \
     git build-essential pkg-config python3-dev libgirepository-2.0-dev libcairo2-dev gir1.2-gtk-3.0 libcanberra-gtk3-module \
     dbus-x11 xfonts-base x11-xserver-utils \
     snapd \
+    python3.12-venv \
     && rm -rf /var/lib/apt/lists/*
 
 sudo snap install astral-uv --classic
