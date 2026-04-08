@@ -61,7 +61,8 @@ You should see some terminal output.
 
 And now, let's package the GUI application as well.
 
-- Add another part corresponding to `test-app-gui`:
+- Add another part corresponding to `test-app-gui`
+  using [the `gnome` extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/gnome-extension/):
 
 ```yaml
 apps:
@@ -69,6 +70,10 @@ apps:
     ...
   test-app-gui:
     command: bin/test-app-gui
+    extension: [gnome]
+    # NOTE: Workaround for Toga
+    environment:
+      XAUTHORITY: "${SNAP_REAL_HOME}/.Xauthority"
 ```
 
 - Tweak the building of the `test-app` part
@@ -82,24 +87,35 @@ parts:
       - gui
 ```
 
-- Add the necessary system libraries to compile the dependencies from source:
+- Pack the snap again: `snapcraft pack -v`{{exec}}
+
+> This will take a few minutes,
+> as the `gnome` extension includes a few extra packages.
+
+- Install the snap again: `sudo snap install ./test-app_0.1_amd64.snap --devmode`
+- **On the graphical session**, test that `test-app.test-app-gui` launches the GUI application.
+
+---
+
+One more step is needed to enable strict [confinement](https://snapcraft.io/docs/explanation/security/snap-confinement/),
+providing the most security features.
+
+- Change the `grade` to `stable` and the `confinement` to `strict`
+- Enable the `dbus` interface:
 
 ```yaml
-parts:
-  test-app:
-    ...
-    build-packages:
-      - libcairo2-dev
-      - libgirepository-2.0-dev
+slots:
+  dbus-daemon:
+    interface: dbus
+    bus: session
+    name: org.canonical.test-toga-app
 ```
 
-- Stage the necessary system libraries that need to be present in the final package:
+> Notice the `name` has to match
+> the one that was declared in the `toga.App` instantiation!
 
-```yaml
-parts:
-  test-app:
-    ...
-    stage-packages:
-      - libfontconfig1
-      - libgirepository-2.0-0
-```
+- Pack the snap again: `snapcraft pack -v`{{exec}}
+- Install the snap, this time with a different flag: `sudo snap install ./test-app_0.1_amd64.snap --dangerous`
+- **On the graphical session**, test that `test-app.test-app-gui` launches the GUI application.
+
+If you made it this far, congratulations! 🎉
