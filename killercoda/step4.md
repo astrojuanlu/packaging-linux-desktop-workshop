@@ -119,3 +119,14 @@ slots:
 - **On the graphical session**, test that `test-app.test-app-gui` launches the GUI application.
 
 If you made it this far, congratulations! 🎉
+
+#### Exercise
+
+Apply what you have learned so far to snap the Solar ROI app
+we packaged at the end of the previous step.
+
+For that,
+
+- `git clone -b solar-roi-calculator-packaged --single-branch https://github.com/astrojuanlu/packaging-linux-desktop-workshop.git ~/app-packaged`{{exec}}
+- Add a proper `snap/snapcraft.yaml` and do `snapcraft pack -v`{{exec}}
+  until it works.
