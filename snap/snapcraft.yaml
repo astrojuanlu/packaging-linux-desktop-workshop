@@ -1,0 +1,55 @@
+name: solar-roi-calculator
+version: '0.1.0'
+summary: Graphical solar ROI calculator
+description: |
+  A simple solar ROI calculator application built with Toga.
+title: Solar ROI Calculator
+license: MIT
+contact: juan.rodriguez@canonical.com
+website: https://github.com/canonical
+source-code: https://github.com/astrojuanlu/solar-roi-calculator
+issues: https://github.com/astrojuanlu/solar-roi-calculator/issues
+
+base: core24
+confinement: strict
+grade: stable
+
+apps:
+  solar-roi-calculator:
+    command: bin/solar-roi-calculator
+    extensions: [gnome]
+    environment:
+      XAUTHORITY: "${SNAP_REAL_HOME}/.Xauthority"
+    plugs:
+      - desktop
+      - desktop-legacy
+      - wayland
+      - x11
+
+slots:
+  dbus-daemon:
+    interface: dbus
+    bus: session
+    name: org.beeware.toga.examples.solar
+
+parts:
+  solar-roi-calculator:
+    plugin: uv
+    source: .
+    build-packages:
+      - build-essential
+      - cargo
+      - rustc
+      - pkg-config
+      - libcairo2-dev
+      - libgirepository-2.0-dev
+      - libssl-dev
+      - libffi-dev
+      - python3-dev
+    build-snaps:
+      - astral-uv
+    stage-packages:
+      - libgirepository-2.0-0
+      - libgtk-3-0
+      - libgdk-pixbuf2.0-0
+      - libcairo2
