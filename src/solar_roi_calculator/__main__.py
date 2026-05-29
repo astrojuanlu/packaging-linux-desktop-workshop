@@ -1,9 +1,7 @@
 import toga
+from sola_rs_roi_lib import calculate_roi
 from toga.widgets.base import Widget
 from travertino.constants import COLUMN, LEFT, ROW
-
-# from sola_rs_roi_lib import calculate_roi
-from lib import calculate_roi
 
 
 def build(app: toga.App) -> Widget:
@@ -36,7 +34,7 @@ def build(app: toga.App) -> Widget:
         except ValueError:
             result_label.text = "ROI: Invalid input"
         except Exception as e:
-            result_label.text = f"ROI: Error - {str(e)}"
+            result_label.text = f"ROI: Error - {e!s}"
 
     button = toga.Button("Calculate", on_press=calculate)
 
@@ -78,10 +76,17 @@ def build(app: toga.App) -> Widget:
     return box
 
 
-if __name__ == "__main__":
-    app = toga.App(
+def main():
+    return toga.App(
         "Solar ROI Calculator",
         "org.beeware.toga.examples.solar",
-        startup=build,
+        startup=build,  # ty:ignore[invalid-argument-type]
     )
-    app.main_loop()
+
+
+def run():
+    main().main_loop()
+
+
+if __name__ == "__main__":
+    run()
