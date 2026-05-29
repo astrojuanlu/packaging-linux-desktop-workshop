@@ -1,0 +1,3 @@
+[toolchain]
+# To ensure that Cargo.lock is generated with version=3
+channel = "1.77"
