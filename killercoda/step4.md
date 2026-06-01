@@ -70,7 +70,7 @@ apps:
     ...
   test-app-gui:
     command: bin/test-app-gui
-    extension: [gnome]
+    extensions: [gnome]
     # NOTE: Workaround for Toga
     environment:
       XAUTHORITY: "${SNAP_REAL_HOME}/.Xauthority"
