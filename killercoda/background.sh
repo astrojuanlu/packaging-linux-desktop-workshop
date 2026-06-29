@@ -6,6 +6,8 @@ echo Installing...  # to test stdout output in /var/log/killercoda
 
 export DEBIAN_FRONTEND=noninteractive
 
+id -u ubuntu &>/dev/null || useradd -m -s /bin/bash ubuntu
+
 # 0. Some configurations
 echo '# Override PS1 with red prompt' >> /root/.bashrc
 echo 'export PS1="\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]# "' >> /root/.bashrc
