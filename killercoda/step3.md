@@ -49,7 +49,7 @@ lacking metadata and a proper directory structure.
 
 For that,
 
-- `git clone -b solar-roi-calculator-raw --single-branch https://github.com/astrojuanlu/packaging-linux-desktop-workshop.git ~/app-raw`{{exec}}
+- `git clone -b solar-roi-calculator-raw --single-branch https://github.com/astrojuanlu/packaging-linux-desktop-workshop.git ~/app-raw && cd ~/app-raw`{{exec}}
 - You will see an `app.py`. It works, but you will need to
   manually create a virtual environment and install the missing dependencies.
   Not nice.
